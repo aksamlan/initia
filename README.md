@@ -157,3 +157,7 @@ initiad tx mstaking create-validator \
   --gas-prices 0.15uinit \
   -y
 ```
+Delege yourself
+```
+initiad tx staking delegate $(initiad keys show wallet --bech val -a)  miktar000000uinit --from wallet --node=http://localhost:15657 -y
+```
