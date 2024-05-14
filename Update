@@ -1,0 +1,12 @@
+```
+sudo systemctl restart initiad && sudo journalctl -u initiad -f -o cat
+```
+```
+cd initia
+git fetch
+git checkout v0.2.12
+make install
+```
+```
+sudo systemctl restart initiad && sudo journalctl -u initiad -f -o cat
+```
