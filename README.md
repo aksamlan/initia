@@ -140,17 +140,20 @@ initiad keys unsafe-import-eth-key $WALLET <private-key-eth> --keyring-backend f
 To create your validator run command below
 ```
 initiad tx mstaking create-validator \
-  --amount=1000000uinit \
+  --amount=9000000uinit \
   --pubkey=$(initiad tendermint show-validator) \
-  --moniker=MonikerName \
+  --moniker=HusoNode \
   --chain-id=initiation-1 \
   --commission-rate=0.05 \
-  --commission-max-rate=0.10 \
-  --commission-max-change-rate=0.01 \
-  --from=wallet \
-  --identity="" \
-  --website="" \
-  --details="" \
+  --commission-max-rate=0.20 \
+  --commission-max-change-rate=0.05 \
+  --from=huso \
+  --identity="546C4A18944D2DBE" \
+  --website="https://github.com/aksamlan" \
+  --details="CN-RC" \
   --node=http://localhost:15657 \
+  --gas-adjustment 1.4 \
+  --gas auto \
+  --gas-prices 0.15uinit \
   -y
 ```
