@@ -139,18 +139,18 @@ initiad keys unsafe-import-eth-key $WALLET <private-key-eth> --keyring-backend f
 
 To create your validator run command below
 ```
-initiad tx staking create-validator \
-  --amount=5000000uinit \
+initiad tx mstaking create-validator \
+  --amount=1000000uinit \
   --pubkey=$(initiad tendermint show-validator) \
   --moniker=MonikerName \
   --chain-id=initiation-1 \
   --commission-rate=0.05 \
   --commission-max-rate=0.10 \
   --commission-max-change-rate=0.01 \
-  --min-self-delegation=1 \
   --from=wallet \
   --identity="" \
   --website="" \
   --details="" \
+  --node=http://localhost:15657 \
   -y
 ```
