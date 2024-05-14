@@ -159,5 +159,5 @@ initiad tx mstaking create-validator \
 ```
 Delege yourself
 ```
-initiad tx mstaking delegate $(initiad keys show wallet --bech val -a)  1000000uinit --from wallet --node=http://localhost:15657 -y
+initiad tx mstaking delegate $(initiad keys show wallet --bech val -a)  1000000uinit --from wallet --node=http://localhost:15657 --gas-adjustment 1.4 --gas auto --gas-prices 0.15uinit  -y
 ```
