@@ -1,6 +1,6 @@
 ## update
-``` 
-sudo systemctl restart initiad && sudo journalctl -u initiad -f -o cat
+```
+sudo systemctl stop initiad
 ```
 
 ```
