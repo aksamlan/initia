@@ -43,6 +43,28 @@ initiad init (yourname)  --chain-id initiation-1
 ```
 curl -Ls https://initia.s3.ap-southeast-1.amazonaws.com/initiation-1/genesis.json > \ $HOME/.initia/config/genesis.json
 ```
+## Settings Port 
+```
+echo "export N_PORT="15"" >> $HOME/.bash_profile
+source $HOME/.bash_profile
+```
+```
+sed -i.bak -e "s%:1317%:${N_PORT}317%g;
+s%:8080%:${N_PORT}080%g;
+s%:9090%:${N_PORT}090%g;
+s%:9091%:${N_PORT}091%g;
+s%:8545%:${N_PORT}545%g;
+s%:8546%:${N_PORT}546%g;
+s%:6065%:${N_PORT}065%g" $HOME/.initia/config/app.toml
+```
+```
+sed -i.bak -e "s%:26658%:${N_PORT}658%g;
+s%:26657%:${N_PORT}657%g;
+s%:6060%:${N_PORT}060%g;
+s%:26656%:${N_PORT}656%g;
+s%^external_address = \"\"%external_address = \"$(wget -qO- eth0.me):${N_PORT}656\"%;
+s%:26660%:${N_PORT}660%g" $HOME/.initia/config/config.toml
+```
 ## set minimum  gas price
 ```
 # setting minimum-gas-prices = "0.15uinit,0.01uusdc"
