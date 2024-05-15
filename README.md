@@ -83,16 +83,21 @@ sed -i -e "s/^seeds *=.*/seeds = \"$SEEDS\"/; s/^persistent_peers *=.*/persisten
 
 ## Create service
 ```
+sudo tee /etc/systemd/system/initiad.service > /dev/null << EOF
 [Unit]
-Description=initia node
+Description=initia node service
 After=network-online.target
 
 [Service]
 User=$USER
-ExecStart=/usr/bin/initiad start
+ExecStart=$(which cosmovisor) run start
 Restart=on-failure
 RestartSec=10
-LimitNOFILE=10000
+LimitNOFILE=65535
+Environment="DAEMON_HOME=$HOME/.initia"
+Environment="DAEMON_NAME=initiad"
+Environment="UNSAFE_SKIP_BACKUP=true"
+Environment="PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:$HOME/.initia/cosmovisor/current/bin"
 
 [Install]
 WantedBy=multi-user.target
