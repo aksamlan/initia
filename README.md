@@ -42,7 +42,8 @@ initiad init (yourname)  --chain-id initiation-1
 ```
 ## Dowload genesis
 ```
-curl -Ls https://initia.s3.ap-southeast-1.amazonaws.com/initiation-1/genesis.json > \ $HOME/.initia/config/genesis.json
+curl -Ls https://initia.s3.ap-southeast-1.amazonaws.com/initiation-1/genesis.json > \
+         $HOME/.initia/config/genesis.json
 ```
 ## Settings Port 
 ```
